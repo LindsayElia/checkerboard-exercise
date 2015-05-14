@@ -1,45 +1,31 @@
-var colorNum1 = 80;
-var colorNum2 = 80;
+window.onload = changeColors;
 
-for (var i = 0; i < 81; i++){
-	var newDiv = document.createElement("div");	
-	document.body.appendChild(newDiv);		
-	newDiv.style.width = "11.1%";
-	newDiv.style.float = "left";
-	newDiv.style.padding = "0 0 11.1% 0";
-	
-	if (i%2 === 0){
-		
-		// add 2 to 80
-		var newColor1 = function(str){
-			
-			for(var j = 0; j < 9; j++){
-				colorNum1 = colorNum1 + 2;
-				return colorNum1.toString();
-			}
-		};
-		
-		var colorStr1 = newColor1();
-		
-		newDiv.style.background = "rgb(120,66," + colorStr1 + ")";
-		
-	}
-	
-	else {
-		
-		// add 2 to 80
-		var newColor2 = function(str){
-			
-			for(var j = 0; j < 9; j++){
-				colorNum2 = colorNum2 + 2;
-				return colorNum2.toString();
-			}
-		};
-		
-		var colorStr2 = newColor2();
-		
-		newDiv.style.background = "rgb(120,3," + colorStr2 + ")";
+// document.addEventListener("pageshow", changeColors);
 
+function changeColors(){
+	intervId = setInterval(randomColors, 2000);
+};
+
+function randomColors(){
+	for (var i = 0; i < 81; i++){
+		var newDiv = document.createElement("div");	
+		document.body.appendChild(newDiv);		
+		newDiv.style.width = "11.1%";
+		newDiv.style.borderRadius = "50%";		// turns the squares into circles
+		newDiv.style.float = "left";
+		newDiv.style.padding = "0 0 11.1% 0";
+		newDiv.style.background = "#" + Math.floor(Math.random()*16777215).toString(16); 	
 	}
-	
-}
+		// randomColors(setTimeout(randomColors, 2000));
+};
+
+
+function intervalFlashing (){
+	for (var t = 0; t < 100; t++){
+		setTimeout(randomColors(), 2000);
+		document.addEventListener("DOMContentLoaded", randomColors);
+	 	intervalFlashing();
+	}
+};
+
+
