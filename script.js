@@ -1,4 +1,16 @@
-// Your JS goes here
+for (var i = 0; i < 81; i++){
+	var newDiv = document.createElement("div");	
+	document.body.appendChild(newDiv);		
+	newDiv.style.width = "11.1%";
+	newDiv.style.float = "left";
+	newDiv.style.padding = "0 0 11.1% 0";
+	newDiv.style.background = "#" + Math.floor(Math.random()*16777215).toString(16); 	
+}
+
+
+/*
+
+Red & Black checkerboard:
 
 for (var i = 0; i < 81; i++){	// count up to the number of squares we need
 	// no need to add a new line after every 9 squares because we are using % for the sizes
@@ -22,18 +34,13 @@ for (var i = 0; i < 81; i++){	// count up to the number of squares we need
 	}
 }
 
-
-
+*/
 
 // newDiv.innerHTML = "."	// This appears inside of the <div> element that we just created.
 // newDiv.style.color = "red";	//	sets the text to the same red as the background
 
 
-
-
 /*
-
-
 
 var blackDiv = document.createElement("div");	// creating a new <element>, like <h1> or <p>. We're creating a <div> section here.
 
